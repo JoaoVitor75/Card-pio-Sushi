@@ -1,5 +1,7 @@
 package com.joao.sushi.produtos.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +26,13 @@ public class ProdutosController {
     }
 
     @PostMapping
-public ResponseEntity creaEntity (@RequestBody ProdutosDTO cProdutosDTO) {
-    return ResponseEntity.ok().body(services.createDto(cProdutosDTO));
-}
+    public ResponseEntity creaEntity(@RequestBody ProdutosDTO cProdutosDTO) {
+        return ResponseEntity.ok().body(services.createDto(cProdutosDTO));
+    }
+
+    @GetMapping
+    public List<ProdutosDTO> getAll() {
+        return services.getAll();
+    }
 
 }

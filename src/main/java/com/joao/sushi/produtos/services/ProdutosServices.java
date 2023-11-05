@@ -1,5 +1,8 @@
 package com.joao.sushi.produtos.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +28,18 @@ public class ProdutosServices {
     public ProdutosDTO createDto(ProdutosDTO produtosDTO) {
         ProdutosORM produtosORM = converter.dtoToOrm(produtosDTO);
         repository.save(produtosORM);
-        return converter.ormToDto(produtosORM,produtosDTO);
+        return converter.ormToDto(produtosORM, produtosDTO);
     }
 
+    public List<ProdutosDTO> getAll() {
+        List<ProdutosORM> produtosORMList = repository.findAll();
+        List<ProdutosDTO> produtosDTOList = new ArrayList<>();
+
+        for (ProdutosORM produtosORM : produtosORMList) {
+            ProdutosDTO produtosDTO = converter.ormToDto(produtosORM);
+            produtosDTOList.add(produtosDTO);
+        }
+
+        return produtosDTOList;
+    }
 }
