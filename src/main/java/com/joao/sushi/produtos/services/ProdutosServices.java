@@ -41,5 +41,24 @@ public class ProdutosServices {
         }
 
         return produtosDTOList;
+
+    }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id.toString());
+    }
+
+    public ProdutosDTO updateById(ProdutosDTO produtosDTO) {
+        ProdutosORM produtosORM = repository.findById(produtosDTO.getId().toString()).orElse(null);
+
+        if (produtosORM != null) {
+            converter.dtoToOrm(produtosDTO, produtosORM);
+            repository.save(produtosORM);
+            return produtosDTO;
+            
+        } else {
+            // Tratar o caso em que o produto com o ID fornecido não foi encontrado
+            return null; // Ou lançar uma exceção, dependendo do que deseja fazer
+        }
     }
 }
