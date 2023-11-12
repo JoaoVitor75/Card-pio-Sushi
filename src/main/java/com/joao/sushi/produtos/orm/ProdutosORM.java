@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "produtos")
 public class ProdutosORM {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,6 +18,7 @@ public class ProdutosORM {
     private double preco;
     private String categoria;
     private boolean disponivel;
+    private String imagens;
 
     public Long getId() {
         return id;
@@ -65,6 +66,14 @@ public class ProdutosORM {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public String getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(String imagens) {
+        this.imagens = imagens;
     }
 
 }

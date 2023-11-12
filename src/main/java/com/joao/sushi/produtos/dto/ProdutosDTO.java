@@ -1,6 +1,5 @@
 package com.joao.sushi.produtos.dto;
 
-
 public class ProdutosDTO {
 
     private Long id;
@@ -8,6 +7,7 @@ public class ProdutosDTO {
     private String descricao;
     private double preco;
     private boolean disponivel;
+    private String imagens;
 
     public Long getId() {
         return id;
@@ -47,6 +47,14 @@ public class ProdutosDTO {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+    public String getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(String imagens) {
+        this.imagens = imagens;
     }
 
 }

@@ -19,6 +19,7 @@ public class ProdutosConverter {
         orm.setDescricao(dto.getDescricao());
         orm.setPreco(dto.getPreco());
         orm.setDisponivel(dto.isDisponivel());
+        orm.setImagens(dto.getImagens());
         return orm;
     }
 
@@ -33,6 +34,7 @@ public class ProdutosConverter {
         dto.setDescricao(orm.getDescricao());
         dto.setPreco(orm.getPreco());
         dto.setDisponivel(orm.isDisponivel());
+        dto.setImagens(orm.getImagens());
         return dto;
     }
 
